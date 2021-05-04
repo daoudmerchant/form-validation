@@ -1,213 +1,4 @@
 const validateForm = (function () {
-  let regexObj = {
-    country: new RegExp(
-      'afghanistan|' +
-        'albania|' +
-        'algeria|' +
-        'andorra|' +
-        'angola|' +
-        'antigua and barbuda|' +
-        'argentina|' +
-        'armenia|' +
-        'australia|' +
-        'austria|' +
-        'azerbaijan|' +
-        'bahamas|' +
-        'bahrain|' +
-        'bangladesh|' +
-        'barbados|' +
-        'belarus|' +
-        'belgium|' +
-        'belize|' +
-        'benin|' +
-        'bhutan|' +
-        'bolivia|' +
-        'bosnia and herzogovina|' +
-        'bosnia|' +
-        'herzogovina|' +
-        'bosnia herzogovina|' +
-        'botswana|' +
-        'brazil|' +
-        'brunei|' +
-        'bulgaria|' +
-        'burkina faso|' +
-        'burundi|' +
-        "c[oô]te d[']ivoire|" +
-        'cambo verde|' +
-        'cameroon|' +
-        'canada|' +
-        'central african republic|' +
-        'chad|' +
-        'chile|' +
-        'china|' +
-        'colombia|' +
-        'comoros|' +
-        'congo|' +
-        'congo[-\\s]brazzaville|' +
-        'costa rica|' +
-        'croatia|' +
-        'cuba|' +
-        'cyprus|' +
-        'czechia|' +
-        'czech republic|' +
-        'democratic republic of the congo|' +
-        'denmark|' +
-        'djibouti|' +
-        'dominica|' +
-        'dominican republic|' +
-        'ecuador|' +
-        'egypt|' +
-        'el salvador|' +
-        'equatorial guinea|' +
-        'eritrea|' +
-        'estonia|' +
-        'eswatini|' +
-        'swaziland|' +
-        'ethiopia|' +
-        'fiji|' +
-        'finland|' +
-        'france|' +
-        'gabon|' +
-        'gambia|' +
-        'georgia|' +
-        'germany|' +
-        'ghana|' +
-        'greece|' +
-        'grenada|' +
-        'guatemala|' +
-        'guinea|' +
-        'guinea[-\\s]bissau|' +
-        'guyana|' +
-        'haiti|' +
-        'holy see|' +
-        'honduras|' +
-        'hungary|' +
-        'iceland|' +
-        'india|' +
-        'indonesia|' +
-        'iran|' +
-        'iraq|' +
-        'ireland|' +
-        'israel|' +
-        'italy|' +
-        'jamaica|' +
-        'japan|' +
-        'jordan|' +
-        'kazakhstan|' +
-        'kenya|' +
-        'kiribati|' +
-        'kuwait|' +
-        'kyrgyzstan|' +
-        'laos|' +
-        'latvia|' +
-        'lebanon|' +
-        'lesotho|' +
-        'liberia|' +
-        'libya|' +
-        'liechtenstein|' +
-        'lithuania|' +
-        'luxembourg|' +
-        'madagascar|' +
-        'malawi|' +
-        'malaysia|' +
-        'maldives|' +
-        'mali|' +
-        'malta|' +
-        'marshall islands|' +
-        'mauritiana|' +
-        'mauritius|' +
-        'mexico|' +
-        'micronesia|' +
-        'moldova|' +
-        'monaco|' +
-        'mongolia|' +
-        'montenegro|' +
-        'morocco|' +
-        'mozambique|' +
-        'myanmar|' +
-        'burma|' +
-        'namibia|' +
-        'nauru|' +
-        'nepal|' +
-        'netherlands|' +
-        'new zealand|' +
-        'nicaragua|' +
-        'niger|' +
-        'nigeria|' +
-        'north korea|' +
-        'north macedonia|' +
-        'norway|' +
-        'oman|' +
-        'pakistan|' +
-        'palau|' +
-        'palestine( state)?|' +
-        'panama|' +
-        'papau new guinea|' +
-        'paraguay|' +
-        'peru|' +
-        'philippines|' +
-        'poland|' +
-        'portugal|' +
-        'qatar|' +
-        'romania|' +
-        'russia|' +
-        'rwanda|' +
-        'saint kitts and nevis|' +
-        'saint lucia|' +
-        'saint vincent and the grenadines|' +
-        'samoa|' +
-        'san marino|' +
-        'sao tome and principe|' +
-        'saudi arabia|' +
-        'senegal|' +
-        'serbia|' +
-        'seychelles|' +
-        'sierra leone|' +
-        'singapore|' +
-        'slovakia|' +
-        'slovenia|' +
-        'solomon islands|' +
-        'somalia|' +
-        'south africa|' +
-        'south korea|' +
-        'south sudan|' +
-        'spain|' +
-        'sri lanka|' +
-        'sudan|' +
-        'suriname|' +
-        'sweden|' +
-        'switzerland|' +
-        'syria|' +
-        'tajikistan|' +
-        'tanzania|' +
-        'thailand|' +
-        'timor[-\\s]leste|' +
-        'togo|' +
-        'tonga|' +
-        'trinidad and tobago|' +
-        'tunisia|' +
-        'turkey|' +
-        'turkmenistan|' +
-        'tuvalu|' +
-        'uganda|' +
-        'ukraine|' +
-        'united arab emirates|' +
-        'united kingdom|' +
-        'united states of america|' +
-        'uruguay|' +
-        'uzbekistan|' +
-        'vanuatu|' +
-        'venezuela|' +
-        'vietnam|' +
-        'yemen|' +
-        'zambia|' +
-        'zimbabwe',
-      'i'
-    ),
-    postcode: /[a-zA-Z]{1,2}[0-9]{1,2}[a-zA-Z]?\s?[0-9][a-zA-Z]{2}/,
-    password: /(?=.*\d)(?=.*[A-Z])(?=.*[\\/!@#$%^&*(),.?":{}|<>])/,
-    confpassword: undefined,
-  }
   const format = (function () {
     // left out of makeCountry() in case more input values requiring it are added to form later
     const makeUppercase = function (string) {
@@ -259,6 +50,215 @@ const validateForm = (function () {
     }
   })()
   const validate = (function () {
+    let regexObj = {
+      country: new RegExp(
+        'afghanistan|' +
+          'albania|' +
+          'algeria|' +
+          'andorra|' +
+          'angola|' +
+          'antigua and barbuda|' +
+          'argentina|' +
+          'armenia|' +
+          'australia|' +
+          'austria|' +
+          'azerbaijan|' +
+          'bahamas|' +
+          'bahrain|' +
+          'bangladesh|' +
+          'barbados|' +
+          'belarus|' +
+          'belgium|' +
+          'belize|' +
+          'benin|' +
+          'bhutan|' +
+          'bolivia|' +
+          'bosnia and herzogovina|' +
+          'bosnia|' +
+          'herzogovina|' +
+          'bosnia herzogovina|' +
+          'botswana|' +
+          'brazil|' +
+          'brunei|' +
+          'bulgaria|' +
+          'burkina faso|' +
+          'burundi|' +
+          "c[oô]te d[']ivoire|" +
+          'cambo verde|' +
+          'cameroon|' +
+          'canada|' +
+          'central african republic|' +
+          'chad|' +
+          'chile|' +
+          'china|' +
+          'colombia|' +
+          'comoros|' +
+          'congo|' +
+          'congo[-\\s]brazzaville|' +
+          'costa rica|' +
+          'croatia|' +
+          'cuba|' +
+          'cyprus|' +
+          'czechia|' +
+          'czech republic|' +
+          'democratic republic of the congo|' +
+          'denmark|' +
+          'djibouti|' +
+          'dominica|' +
+          'dominican republic|' +
+          'ecuador|' +
+          'egypt|' +
+          'el salvador|' +
+          'equatorial guinea|' +
+          'eritrea|' +
+          'estonia|' +
+          'eswatini|' +
+          'swaziland|' +
+          'ethiopia|' +
+          'fiji|' +
+          'finland|' +
+          'france|' +
+          'gabon|' +
+          'gambia|' +
+          'georgia|' +
+          'germany|' +
+          'ghana|' +
+          'greece|' +
+          'grenada|' +
+          'guatemala|' +
+          'guinea|' +
+          'guinea[-\\s]bissau|' +
+          'guyana|' +
+          'haiti|' +
+          'holy see|' +
+          'honduras|' +
+          'hungary|' +
+          'iceland|' +
+          'india|' +
+          'indonesia|' +
+          'iran|' +
+          'iraq|' +
+          'ireland|' +
+          'israel|' +
+          'italy|' +
+          'jamaica|' +
+          'japan|' +
+          'jordan|' +
+          'kazakhstan|' +
+          'kenya|' +
+          'kiribati|' +
+          'kuwait|' +
+          'kyrgyzstan|' +
+          'laos|' +
+          'latvia|' +
+          'lebanon|' +
+          'lesotho|' +
+          'liberia|' +
+          'libya|' +
+          'liechtenstein|' +
+          'lithuania|' +
+          'luxembourg|' +
+          'madagascar|' +
+          'malawi|' +
+          'malaysia|' +
+          'maldives|' +
+          'mali|' +
+          'malta|' +
+          'marshall islands|' +
+          'mauritiana|' +
+          'mauritius|' +
+          'mexico|' +
+          'micronesia|' +
+          'moldova|' +
+          'monaco|' +
+          'mongolia|' +
+          'montenegro|' +
+          'morocco|' +
+          'mozambique|' +
+          'myanmar|' +
+          'burma|' +
+          'namibia|' +
+          'nauru|' +
+          'nepal|' +
+          'netherlands|' +
+          'new zealand|' +
+          'nicaragua|' +
+          'niger|' +
+          'nigeria|' +
+          'north korea|' +
+          'north macedonia|' +
+          'norway|' +
+          'oman|' +
+          'pakistan|' +
+          'palau|' +
+          'palestine( state)?|' +
+          'panama|' +
+          'papau new guinea|' +
+          'paraguay|' +
+          'peru|' +
+          'philippines|' +
+          'poland|' +
+          'portugal|' +
+          'qatar|' +
+          'romania|' +
+          'russia|' +
+          'rwanda|' +
+          'saint kitts and nevis|' +
+          'saint lucia|' +
+          'saint vincent and the grenadines|' +
+          'samoa|' +
+          'san marino|' +
+          'sao tome and principe|' +
+          'saudi arabia|' +
+          'senegal|' +
+          'serbia|' +
+          'seychelles|' +
+          'sierra leone|' +
+          'singapore|' +
+          'slovakia|' +
+          'slovenia|' +
+          'solomon islands|' +
+          'somalia|' +
+          'south africa|' +
+          'south korea|' +
+          'south sudan|' +
+          'spain|' +
+          'sri lanka|' +
+          'sudan|' +
+          'suriname|' +
+          'sweden|' +
+          'switzerland|' +
+          'syria|' +
+          'tajikistan|' +
+          'tanzania|' +
+          'thailand|' +
+          'timor[-\\s]leste|' +
+          'togo|' +
+          'tonga|' +
+          'trinidad and tobago|' +
+          'tunisia|' +
+          'turkey|' +
+          'turkmenistan|' +
+          'tuvalu|' +
+          'uganda|' +
+          'ukraine|' +
+          'united arab emirates|' +
+          'united kingdom|' +
+          'united states of america|' +
+          'uruguay|' +
+          'uzbekistan|' +
+          'vanuatu|' +
+          'venezuela|' +
+          'vietnam|' +
+          'yemen|' +
+          'zambia|' +
+          'zimbabwe',
+        'i'
+      ),
+      postcode: /[a-zA-Z]{1,2}[0-9]{1,2}[a-zA-Z]?\s?[0-9][a-zA-Z]{2}/,
+      password: /(?=.*\d)(?=.*[A-Z])(?=.*[\\/!@#$%^&*(),.?":{}|<>])/,
+      confpassword: undefined,
+    }
     const validateCustom = (function () {
       const validateString = function (string, id) {
         if (!string.match(regexObj[id])) {
@@ -383,16 +383,16 @@ const validateForm = (function () {
     submitForm,
   }
   // return handleinput and form validation function in object
-})()
+})()(
+  // on load
 
-// on load
-
-;(function () {
-  const form = document.querySelector('form')
-  const inputs = Array.from(document.querySelectorAll('input'))
-  // const [email, country, postcode, password, confPassword] = inputs
-  form.addEventListener('submit', (e) => validateForm.submitForm(e, inputs))
-  inputs.forEach((input) =>
-    input.addEventListener('input', (e) => validateForm.handleInput(e.target))
-  )
-})()
+  function () {
+    const form = document.querySelector('form')
+    const inputs = Array.from(document.querySelectorAll('input'))
+    // const [email, country, postcode, password, confPassword] = inputs
+    form.addEventListener('submit', (e) => validateForm.submitForm(e, inputs))
+    inputs.forEach((input) =>
+      input.addEventListener('input', (e) => validateForm.handleInput(e.target))
+    )
+  }
+)()
